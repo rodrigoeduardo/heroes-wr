@@ -10,6 +10,7 @@ import { Hero } from 'src/app/shared/types/Hero';
 })
 export class HomeComponent implements OnInit {
   heroes$!: Observable<Hero[]>;
+  pickedHeroes: Hero[] = [];
 
   constructor(private hs: HeroesService) {}
 
@@ -19,5 +20,9 @@ export class HomeComponent implements OnInit {
 
   getHeroes() {
     this.heroes$ = this.hs.listHeroes();
+  }
+
+  pickHero(hero: Hero): void {
+    this.pickedHeroes.push(hero);
   }
 }

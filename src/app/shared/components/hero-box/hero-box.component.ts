@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { HomeComponent } from 'src/app/pages/home/home.component';
 import { Hero } from '../../types/Hero';
 
 @Component({
@@ -10,11 +11,13 @@ export class HeroBoxComponent implements OnInit {
   @Input()
   hero!: Hero;
 
-  constructor() {}
+  constructor(private hc: HomeComponent) {}
 
   ngOnInit() {}
 
-  wr() {
-    console.log('oi');
+  pickThisHero() {
+    if (this.hc.pickedHeroes.length < 5) {
+      this.hc.pickedHeroes.push(this.hero);
+    }
   }
 }

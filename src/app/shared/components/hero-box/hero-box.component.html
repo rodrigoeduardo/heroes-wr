@@ -1,8 +1,4 @@
-<li class="list-group-item" style="display: block" (up)="wr()">
+<li class="list-group-item" style="display: block" (click)="pickThisHero()">
   <p>{{ hero.localized_name }}</p>
   <img class="heroImg" [src]="'https://api.opendota.com' + hero.img" />
-
-  <p id="heroWr" style="display: none">
-    {{ ((hero.pro_win / hero.pro_pick) * 100).toFixed(1) }}
-  </p>
 </li>
