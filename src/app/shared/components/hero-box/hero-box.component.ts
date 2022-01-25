@@ -1,10 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { HeroesService } from '../../services/heroes.service';
 import { Hero } from '../../types/Hero';
 
 @Component({
   selector: 'app-hero-box',
   templateUrl: './hero-box.component.html',
+  styleUrls: ['./hero-box.component.css'],
 })
 export class HeroBoxComponent implements OnInit {
   @Input()
@@ -13,4 +13,8 @@ export class HeroBoxComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+
+  wr() {
+    console.log('oi');
+  }
 }

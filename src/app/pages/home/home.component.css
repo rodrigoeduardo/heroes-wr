@@ -1,0 +1,22 @@
+main {
+  padding: 5%;
+}
+
+section {
+  margin: 3rem;
+  overflow: auto;
+  white-space: nowrap;
+}
+
+.heroBox {
+  display: inline-block;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+
+.spinner-grow {
+  width: 3rem;
+  height: 3rem;
+  margin-top: 2rem;
+}

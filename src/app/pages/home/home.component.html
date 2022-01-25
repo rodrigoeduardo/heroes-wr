@@ -1,19 +1,12 @@
-<main class="d-flex flex-column align-items-center justify-content-center">
+<main>
   <app-search-box></app-search-box>
 
-  <section>
-    <ul class="list-group list-group-horizontal-md">
-      <div *ngFor="let hero of heroes$ | async">
-        <app-hero-box [hero]="hero"></app-hero-box>
-      </div>
-    </ul>
+  <section style="background-color: aqua">
+    <div class="heroBox" *ngFor="let hero of heroes$ | async">
+      <app-hero-box [hero]="hero"></app-hero-box>
+    </div>
 
-    <div
-      *ngIf="!(heroes$ | async)"
-      class="spinner-grow"
-      style="width: 3rem; height: 3rem; margin-top: 2rem"
-      role="status"
-    >
+    <div *ngIf="!(heroes$ | async)" class="spinner-grow" role="status">
       <span class="visually-hidden">Loading...</span>
     </div>
   </section>
