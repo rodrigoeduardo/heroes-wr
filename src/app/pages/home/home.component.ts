@@ -11,6 +11,7 @@ import { Hero } from 'src/app/shared/types/Hero';
 export class HomeComponent implements OnInit {
   heroes$!: Observable<Hero[]>;
   pickedHeroes: Hero[] = [];
+  compWinrate: number = 0;
 
   constructor(private hs: HeroesService) {}
 
@@ -26,7 +27,17 @@ export class HomeComponent implements OnInit {
     this.pickedHeroes.push(hero);
   }
 
-  removeHero(hero : Hero): void{  
-    this.pickedHeroes = this.pickedHeroes.filter(h => h !== hero);
+  removeHero(hero: Hero): void {
+    this.pickedHeroes = this.pickedHeroes.filter((h) => h !== hero);
+  }
+
+  calculateWinrate() {
+    let totalGames = 0;
+    let totalWins = 0;
+    this.pickedHeroes.forEach((hero) => {
+      totalGames += hero.pro_pick;
+      totalWins += hero.pro_win;
+    });
+    this.compWinrate = (totalWins / totalGames) * 100;
   }
 }

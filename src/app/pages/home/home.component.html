@@ -1,7 +1,9 @@
 <main>
+  <h1 id="title">heroes<span>WR</span></h1>
+
   <app-search-box></app-search-box>
 
-  <section style="background-color: aqua">
+  <section>
     <div class="heroBox" *ngFor="let hero of heroes$ | async">
       <app-hero-box [hero]="hero"></app-hero-box>
     </div>
@@ -9,26 +11,57 @@
     <div *ngIf="!(heroes$ | async)" class="spinner-grow" role="status">
       <span class="visually-hidden">Loading...</span>
     </div>
-
-    
   </section>
 
-  <section style="background-color: aqua">      
+  <section *ngIf="pickedHeroes.length > 0">
     <div class="picked-heroes-title">
       <p>Heroes you picked</p>
     </div>
-    
-    <div *ngIf="!(pickedHeroes)" class="picked-heroes">
-      <p>Choose your hero</p>
-    </div>
 
     <div class="heroBox" *ngFor="let hero of pickedHeroes">
-      <button (click) = "removeHero(hero)">
-        <img src="../../../assets/close.png" alt="">
+      <button (click)="removeHero(hero)">
+        <img src="../../../assets/close.png" alt="Fechar" />
       </button>
       <app-hero-box [hero]="hero"></app-hero-box>
     </div>
-    
   </section>
 
+  <button
+    *ngIf="pickedHeroes.length == 5"
+    (click)="calculateWinrate()"
+    type="button"
+    class="btn btn-primary"
+    data-bs-toggle="modal"
+    data-bs-target="#staticBackdrop"
+  >
+    Calcular
+  </button>
+
+  <!-- Modal -->
+  <div
+    class="modal fade"
+    id="staticBackdrop"
+    data-bs-backdrop="static"
+    data-bs-keyboard="false"
+    tabindex="-1"
+    aria-labelledby="staticBackdropLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">
+            A taxa de vitória da sua composição é:
+          </h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">{{ compWinrate.toFixed(1) + "%" }}</div>
+      </div>
+    </div>
+  </div>
 </main>

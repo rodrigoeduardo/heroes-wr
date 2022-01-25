@@ -1,11 +1,28 @@
+body {
+  background-color: #fffbf5;
+}
+
 main {
   padding: 5%;
+}
+
+#title {
+  font-size: 2.5em;
+  font-weight: bold;
+  color: #fa4454;
+  text-align: center;
+}
+
+span {
+  color: #dc3d4b;
 }
 
 section {
   margin: 3rem;
   overflow: auto;
   white-space: nowrap;
+  background-color: #eeeeee;
+  border-radius: 10px;
 }
 
 .heroBox {
@@ -26,8 +43,17 @@ section {
   padding: 14px;
 }
 
-.picked-heroes-title{
+.picked-heroes-title {
   text-align: center;
   padding: 14px;
   font-weight: bold;
+}
+
+.modal-body {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: bold;
+  font-size: large;
+  color: darkgreen;
 }
