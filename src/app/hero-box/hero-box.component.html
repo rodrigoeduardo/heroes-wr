@@ -1,0 +1,8 @@
+<ul class="list-group list-group-horizontal-md">
+  <div *ngFor="let hero of herois">
+    <li class="list-group-item">
+      <p>{{ hero.localized_name }}</p>
+      <img class="heroImg" [src]="'https://api.opendota.com' + hero.img" />
+    </li>
+  </div>
+</ul>
