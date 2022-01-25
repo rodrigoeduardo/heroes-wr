@@ -9,5 +9,24 @@
     <div *ngIf="!(heroes$ | async)" class="spinner-grow" role="status">
       <span class="visually-hidden">Loading...</span>
     </div>
+
+    
   </section>
+
+  <section style="background-color: aqua">      
+    <div class="picked-heroes-title">
+      <p>Heroes you picked</p>
+    </div>
+    
+    <div *ngIf="!(pickedHeroes)" class="picked-heroes">
+      <p>Choose your hero</p>
+    </div>
+
+    <div class="heroBox" *ngFor="let hero of pickedHeroes">
+      <input type="button" src="close.png">
+      <app-hero-box [hero]="hero"></app-hero-box>
+    </div>
+    
+  </section>
+
 </main>

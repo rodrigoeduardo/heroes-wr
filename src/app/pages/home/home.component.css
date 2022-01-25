@@ -20,3 +20,14 @@ section {
   height: 3rem;
   margin-top: 2rem;
 }
+
+.picked-heroes {
+  text-align: center;
+  padding: 14px;
+}
+
+.picked-heroes-title{
+  text-align: center;
+  padding: 14px;
+  font-weight: bold;
+}
