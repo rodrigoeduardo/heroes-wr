@@ -25,4 +25,8 @@ export class HomeComponent implements OnInit {
   pickHero(hero: Hero): void {
     this.pickedHeroes.push(hero);
   }
+
+  removeHero(hero : Hero): void{  
+    this.pickedHeroes = this.pickedHeroes.filter(h => h !== hero);
+  }
 }

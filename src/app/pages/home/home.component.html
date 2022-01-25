@@ -23,7 +23,9 @@
     </div>
 
     <div class="heroBox" *ngFor="let hero of pickedHeroes">
-      <input type="button" src="close.png">
+      <button (click) = "removeHero(hero)">
+        <img src="../../../assets/close.png" alt="">
+      </button>
       <app-hero-box [hero]="hero"></app-hero-box>
     </div>
     
