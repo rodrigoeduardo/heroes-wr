@@ -57,3 +57,14 @@ section {
   font-size: large;
   color: darkgreen;
 }
+
+.close-img{
+  width: 10%;
+  height: auto;
+
+}
+
+.close-btn{
+  border: none;
+  padding-bottom: 1rem;
+}
