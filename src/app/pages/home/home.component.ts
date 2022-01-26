@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   pickedHeroes: Hero[] = [];
   compWinrate: number = 0;
 
-  constructor(private hs: HeroesService) {}
+  constructor(private hs: HeroesService) { }
 
   ngOnInit() {
     this.getHeroes();
@@ -27,15 +27,27 @@ export class HomeComponent implements OnInit {
     if (!(this.pickedHeroes.length < 5)) return;
 
     this.pickedHeroes.push(hero);
+    this.filterHeroes()
+  }
 
-    // remove hero from observable
-    this.heroes$ = this.heroes$.pipe(
-      map((heroes) => heroes.filter((h) => h.localized_name !== hero.localized_name))
-    );
+  filterHeroes() {
+
+    this.heroes$ = this.hs.listHeroes().pipe(
+      map((heroes) => {
+        let filteredHeroes = heroes;
+
+        this.pickedHeroes.forEach(pickedHero => {
+          filteredHeroes = filteredHeroes.filter((h) => h.localized_name !== pickedHero.localized_name);
+        })
+
+        return filteredHeroes;
+      }
+    ));
   }
 
   removeHero(hero: Hero): void {
     this.pickedHeroes = this.pickedHeroes.filter((h) => h !== hero);
+    this.filterHeroes()
   }
 
   calculateWinrate() {
