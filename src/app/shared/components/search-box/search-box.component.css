@@ -7,7 +7,7 @@ input {
   display: flex;
   margin: 0 auto;
   width: 45%;
-  border: 1px solid black;
+  border: 2px solid #fa4454;
   align-items: center;
   justify-content: space-between;
   border-radius: 20px;

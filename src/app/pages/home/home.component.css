@@ -21,7 +21,7 @@ section {
   margin: 3rem;
   overflow: auto;
   white-space: nowrap;
-  background-color: #eeeeee;
+  background-color: #fa4454;
   border-radius: 10px;
 }
 
@@ -35,7 +35,8 @@ section {
 .spinner-grow {
   width: 3rem;
   height: 3rem;
-  margin-top: 2rem;
+  display: block;
+  margin: 2rem auto;
 }
 
 .picked-heroes {
@@ -44,6 +45,7 @@ section {
 }
 
 .picked-heroes-title {
+  color: white;
   text-align: center;
   padding: 14px;
   font-weight: bold;
@@ -67,4 +69,13 @@ section {
 .close-btn{
   border: none;
   padding-bottom: 1rem;
+  background-color: #fa4454;
+}
+
+.calc-btn {
+  display: block;
+  margin: 0 auto;
+
+  font-size: 4rem;
+  padding: 2rem;
 }
