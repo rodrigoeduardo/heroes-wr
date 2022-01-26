@@ -5,7 +5,7 @@
 
   <section>
     <div class="heroBox" *ngFor="let hero of heroes$ | async">
-      <app-hero-box [hero]="hero"></app-hero-box>
+      <app-hero-box [hero]="hero" (onPickHero)="pickHero($event)" ></app-hero-box>
     </div>
 
     <div *ngIf="!(heroes$ | async)" class="spinner-grow" role="status">

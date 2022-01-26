@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { HomeComponent } from 'src/app/pages/home/home.component';
 import { Hero } from '../../types/Hero';
 
@@ -11,13 +11,14 @@ export class HeroBoxComponent implements OnInit {
   @Input()
   hero!: Hero;
 
-  constructor(private hc: HomeComponent) {}
+  @Output()
+  onPickHero = new EventEmitter<Hero>();
+
+  constructor() {}
 
   ngOnInit() {}
 
   pickThisHero() {
-    if (this.hc.pickedHeroes.length < 5) {
-      this.hc.pickedHeroes.push(this.hero);
-    }
+    this.onPickHero.emit(this.hero);
   }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { HeroesService } from 'src/app/shared/services/heroes.service';
 import { Hero } from 'src/app/shared/types/Hero';
 
@@ -24,7 +24,14 @@ export class HomeComponent implements OnInit {
   }
 
   pickHero(hero: Hero): void {
+    if (!(this.pickedHeroes.length < 5)) return;
+
     this.pickedHeroes.push(hero);
+
+    // remove hero from observable
+    this.heroes$ = this.heroes$.pipe(
+      map((heroes) => heroes.filter((h) => h.localized_name !== hero.localized_name))
+    );
   }
 
   removeHero(hero: Hero): void {
