@@ -1,0 +1,14 @@
+li {
+    transition: 0.2s;
+  }
+  
+  li:hover {
+    cursor: pointer;
+    filter: brightness(0.9);
+  }
+  
+  img {
+    width: 256px;
+    height: 144px;
+  }
+  
