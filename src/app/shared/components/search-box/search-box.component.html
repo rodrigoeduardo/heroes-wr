@@ -1,4 +1,6 @@
 <div id="container">
-  <input type="text" id="search-box" placeholder="Pesquise um herói" />
+  <input type="text" id="search-box" name="name" placeholder="Pesquise um herói" 
+  [(ngModel)]="name"
+  (ngModelChange)="searchForHero($event)" />
   <img src="../../assets/search.svg" alt="" />
 </div>

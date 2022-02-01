@@ -13,4 +13,6 @@ export class HeroesService {
   listHeroes(): Observable<Hero[]> {
     return this.http.get<Hero[]>(this.URL);
   }
+
+  
 }

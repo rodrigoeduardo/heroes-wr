@@ -1,3 +1,4 @@
+import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 import { Component, OnInit } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { HeroesService } from 'src/app/shared/services/heroes.service';
@@ -31,7 +32,7 @@ export class HomeComponent implements OnInit {
   }
 
   filterHeroes() {
-
+    
     this.heroes$ = this.hs.listHeroes().pipe(
       map((heroes) => {
         let filteredHeroes = heroes;
@@ -43,6 +44,31 @@ export class HomeComponent implements OnInit {
         return filteredHeroes;
       }
     ));
+  }
+
+  updateHeroListBySearch(value: string){
+    if(value!==""){
+      this.heroes$ = this.hs.listHeroes().pipe(
+        map((heroes) => {
+          let filteredHeroes = heroes;
+  
+          this.pickedHeroes.forEach(pickedHero => {
+            filteredHeroes = filteredHeroes.filter((h) => (h.localized_name !== pickedHero.localized_name));
+          })  
+
+          let filteredHeroesByName = filteredHeroes;
+
+          filteredHeroes.forEach(heroi => {
+            filteredHeroesByName =filteredHeroesByName.filter((h) => (              
+              (h.localized_name.toLowerCase().includes(value.toLowerCase()))))
+          });
+
+          return filteredHeroesByName;
+        }
+      ));
+    }else{
+      this.filterHeroes();
+    }    
   }
 
   removeHero(hero: Hero): void {

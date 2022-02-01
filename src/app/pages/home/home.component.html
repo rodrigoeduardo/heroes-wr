@@ -1,7 +1,7 @@
 <main>
   <h1 id="title">heroes<span>WR</span></h1>
 
-  <app-search-box></app-search-box>
+  <app-search-box (onHeroSearched)="updateHeroListBySearch($event)"></app-search-box>
 
   <section>
     <div class="heroBox" *ngFor="let hero of heroes$ | async">

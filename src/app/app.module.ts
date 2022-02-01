@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
 import { PickedHeroBoxComponent } from './shared/components/picked-hero-box/picked-hero-box.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],
